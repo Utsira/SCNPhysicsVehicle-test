@@ -13,6 +13,9 @@
 		A28C96C41CCA2B21000B2D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A28C96C21CCA2B21000B2D46 /* Main.storyboard */; };
 		A28C96C61CCA2B21000B2D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A28C96C51CCA2B21000B2D46 /* Assets.xcassets */; };
 		A28C96C91CCA2B21000B2D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A28C96C71CCA2B21000B2D46 /* LaunchScreen.storyboard */; };
+		A28C96D11CCA3564000B2D46 /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C96D01CCA3564000B2D46 /* SCNVector3Extension.swift */; };
+		A2B32E691CCBE1BA0082DB5D /* rc_car_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = A2B32E671CCBE1B90082DB5D /* rc_car_texture.png */; };
+		A2B32E6A1CCBE1BA0082DB5D /* rc_car.dae in Resources */ = {isa = PBXBuildFile; fileRef = A2B32E681CCBE1B90082DB5D /* rc_car.dae */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		A28C96C51CCA2B21000B2D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A28C96C81CCA2B21000B2D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A28C96CA1CCA2B21000B2D46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A28C96D01CCA3564000B2D46 /* SCNVector3Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
+		A2B32E671CCBE1B90082DB5D /* rc_car_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rc_car_texture.png; path = art.scnassets/rc_car_texture.png; sourceTree = "<group>"; };
+		A2B32E681CCBE1B90082DB5D /* rc_car.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = rc_car.dae; path = art.scnassets/rc_car.dae; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				A28C96BC1CCA2B21000B2D46 /* AppDelegate.swift */,
+				A2B32E671CCBE1B90082DB5D /* rc_car_texture.png */,
+				A2B32E681CCBE1B90082DB5D /* rc_car.dae */,
+				A28C96D01CCA3564000B2D46 /* SCNVector3Extension.swift */,
 				A28C96BE1CCA2B21000B2D46 /* art.scnassets */,
 				A28C96C01CCA2B21000B2D46 /* GameViewController.swift */,
 				A28C96C21CCA2B21000B2D46 /* Main.storyboard */,
@@ -129,6 +138,8 @@
 				A28C96C91CCA2B21000B2D46 /* LaunchScreen.storyboard in Resources */,
 				A28C96C61CCA2B21000B2D46 /* Assets.xcassets in Resources */,
 				A28C96C41CCA2B21000B2D46 /* Main.storyboard in Resources */,
+				A2B32E6A1CCBE1BA0082DB5D /* rc_car.dae in Resources */,
+				A2B32E691CCBE1BA0082DB5D /* rc_car_texture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A28C96C11CCA2B21000B2D46 /* GameViewController.swift in Sources */,
+				A28C96D11CCA3564000B2D46 /* SCNVector3Extension.swift in Sources */,
 				A28C96BD1CCA2B21000B2D46 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +304,7 @@
 				A28C96CF1CCA2B21000B2D46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
