@@ -131,7 +131,7 @@ class GameViewController: UIViewController {
     
     func setupCar() -> SCNNode {
         let carScene = SCNScene(named: "art.scnassets/rc_car.scn") //rc_car.dae
-        let chassisNode = carScene!.rootNode.childNodeWithName("rccarBody", recursively: true)!
+        let chassisNode = carScene!.rootNode.childNodeWithName("rccarBody", recursively: false)!
         chassisNode.position = SCNVector3Make(0, 10, 30)
         //chassisNode.rotation = SCNVector4(0, 1, 0, CGFloat(M_PI))
         let body = SCNPhysicsBody.dynamicBody()
@@ -174,25 +174,25 @@ class GameViewController: UIViewController {
 //        wheel2.axle = SCNVector3(x: 1,y: 0,z: 0)
 //        wheel3.axle = SCNVector3(x: 1,y: 0,z: 0)
        // wheel0.steeringAxis = SCNVector3()
-//        var min = SCNVector3(x: 0, y: 0, z: 0)
-//        var max = SCNVector3(x: 0, y: 0, z: 0)
-//        wheelnode0.getBoundingBoxMin(&min, max: &max)
-//        let wheelHalfWidth = Float(0.5 * (max.x - min.x))
-//        var w0 = wheelnode0.convertPosition(SCNVector3Zero, toNode: chassisNode)
-//        w0 = w0 + SCNVector3Make(wheelHalfWidth, 0, 0)
-//        wheel0.connectionPosition = w0
-//        var w1 = wheelnode1.convertPosition(SCNVector3Zero, toNode: chassisNode)
-//        w1 = w1 - SCNVector3Make(wheelHalfWidth, 0, 0)
-//        wheel1.connectionPosition = w1
-//        var w2 = wheelnode2.convertPosition(SCNVector3Zero, toNode: chassisNode)
-//        w2 = w2 + SCNVector3Make(wheelHalfWidth, 0, 0)
-//        wheel2.connectionPosition = w2
-//        var w3 = wheelnode3.convertPosition(SCNVector3Zero, toNode: chassisNode)
-//        w3 = w3 - SCNVector3Make(wheelHalfWidth, 0, 0)
-//        wheel3.connectionPosition = w3
+        var min = SCNVector3(x: 0, y: 0, z: 0)
+        var max = SCNVector3(x: 0, y: 0, z: 0)
+        wheelnode0.getBoundingBoxMin(&min, max: &max)
+        let wheelHalfWidth = Float(0.5 * (max.x - min.x))
+        var w0 = wheelnode0.convertPosition(SCNVector3Zero, toNode: chassisNode)
+        w0 = w0 + SCNVector3Make(wheelHalfWidth * -5.4, wheelHalfWidth * 0.5, 0)
+        wheel0.connectionPosition = w0
+        var w1 = wheelnode1.convertPosition(SCNVector3Zero, toNode: chassisNode)
+        w1 = w1 - SCNVector3Make(wheelHalfWidth * -5.4, -wheelHalfWidth, 0)
+        wheel1.connectionPosition = w1
+        var w2 = wheelnode2.convertPosition(SCNVector3Zero, toNode: chassisNode)
+        w2 = w2 + SCNVector3Make(wheelHalfWidth * -5.4, wheelHalfWidth, 0)
+        wheel2.connectionPosition = w2
+        var w3 = wheelnode3.convertPosition(SCNVector3Zero, toNode: chassisNode)
+        w3 = w3 - SCNVector3Make(wheelHalfWidth * -5.4, -wheelHalfWidth, 0)
+        wheel3.connectionPosition = w3
         
         vehicle = SCNPhysicsVehicle(chassisBody: chassisNode.physicsBody!,
-                                    wheels: [wheel0, wheel1, wheel2, wheel3])
+                                    wheels: [wheel1, wheel0, wheel3, wheel2])
         scnScene.physicsWorld.addBehavior(vehicle)
         return chassisNode
         
@@ -296,15 +296,15 @@ class GameViewController: UIViewController {
 
 extension GameViewController: SCNSceneRendererDelegate {
     func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval) {
-        let defaultEngineForce:CGFloat = 10
+        let defaultEngineForce:CGFloat = 25
         var engineForce: CGFloat = 0
         let cameraDamping = Float(0.3)
         
         if (touchCount == 1) {
             engineForce = defaultEngineForce
         }
-//        vehicle.applyEngineForce(engineForce, forWheelAtIndex: 2)
-//        vehicle.applyEngineForce(engineForce, forWheelAtIndex: 3)
+        vehicle.applyEngineForce(engineForce, forWheelAtIndex: 2)
+        vehicle.applyEngineForce(engineForce, forWheelAtIndex: 3)
         
 //        let carCam = shoulderCameraNode.presentationNode
 //        let targetPos = carCam.convertPosition(carCam.position, toNode: scnScene.rootNode)
